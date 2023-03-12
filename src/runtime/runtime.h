@@ -597,6 +597,8 @@ namespace internal {
   F(TakeHeapSnapshot, -1, 1)                  \
   F(TraceEnter, 0, 1)                         \
   F(TraceExit, 1, 1)                          \
+  F(TracePropertyLoad, 3, 1)                  \
+  F(TracePropertyStore, 4, 1)                 \
   F(TurbofanStaticAssert, 1, 1)               \
   F(TypedArraySpeciesProtector, 0, 1)         \
   F(WaitForBackgroundOptimization, 0, 1)      \

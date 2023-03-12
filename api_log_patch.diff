@@ -2,13 +2,6 @@
 +++ b/BUILD.gn
 @@ -241,12 +241,13 @@ declare_args() {
    # specific hook).
-   v8_check_header_includes = false
- 
-+  
-   # Enable sharing read-only space across isolates.
-   # Sets -DV8_SHARED_RO_HEAP.
-   v8_enable_shared_ro_heap = ""
- 
 -  # Enable lazy source positions by default.
 -  v8_enable_lazy_source_positions = true
 +  # Enable lazy source positions by default. [disabling for VisibleV8]
@@ -930,8 +923,9 @@
  RUNTIME_FUNCTION(Runtime_HaveSameMap) {
    SealHandleScope shs(isolate);
    DCHECK_EQ(2, args.length());
-diff --git a/src/runtime/runtime.h b/src/runtime/runtime.h
-index 045ffb3641..b7c470705c 100644
+
+
+
 --- a/src/runtime/runtime.h
 +++ b/src/runtime/runtime.h
 @@ -556,6 +556,8 @@ namespace internal {

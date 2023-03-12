@@ -154,6 +154,7 @@
         "memory": "cpp",
         "future": "cpp",
         "ranges": "cpp",
-        "*.inc": "cpp"
+        "*.inc": "cpp",
+        "*.diff": "cpp"
     }
 }

@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "runner": "terminal",
+    "tasks": [
+      {
+        "label": "7-build_v8",
+        "type": "shell",
+        "command": "autoninja -C /media/rk/Chromium/trk_chromium/src/out/Debug d8"
+      },
+      {
+        "label": "8-build_chrome_debug",
+        "type": "shell",
+        "command": "autoninja -C /media/rk/Chromium/trk_chromium/src/out/Debug chrome"
+      },
+      {
+        "label": "9-build_content_shell",
+        "type": "shell",
+        "command": "autoninja -C /media/rk/Chromium/trk_chromium/src/out/Debug content_shell"
+      },
+      {
+        "label": "10-build_test_debug",
+        "type": "shell",
+        "command": "autoninja -C /media/rk/Chromium/trk_chromium/src/out/Debug v8_hello_world"
+      },
+      {
+        "label": "11-build_v8",
+        "type": "shell",
+        "command": "autoninja -C /media/rk/Chromium/trk_chromium/src/out/Release d8"
+      },
+    ]
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

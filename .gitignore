@@ -38,7 +38,7 @@
 .pydevproject
 .settings
 .torquelint-cache
-.vscode
+# .vscode
 /_*
 /base
 /build

@@ -1,0 +1,195 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "d8 Debug",
+        "type": "cppdbg", // "cppdbg" for GDB/LLDB, "cppvsdbg" for Windows Visual Studio debugger
+        "request": "launch",
+        "program": "/media/rk/Chromium/trk_chromium/src/out/Debug/d8",
+        "preLaunchTask": "7-build_v8",
+        // "stopAtEntry": true,
+        "cwd": "/media/rk/Chromium/trk_chromium/src/out/Debug",
+        "environment": [],
+        // "console": "integratedTerminal",
+        "args": [
+          "--allow-natives-syntax",
+          // "--print-ast",
+          "/media/rk/Chromium/trk_chromium/test2.js",
+          // "/media/rk/Chromium/trk_chromium/web-tooling-benchmark/dist/cli.js"
+          "--print-bytecode",
+          "--print-bytecode-filter=foo",
+
+          // "http://localhost:8000/",
+          // "--single-process",
+          // "--disable-gpu"
+        ],
+        "setupCommands": [
+          {
+            "description": "Enable pretty printing for gdb",
+            "text": "-enable-pretty-printing"
+          },
+          {
+            "description": "Load v8 gdb configuration",
+            "text": "-interpreter-exec console \"source -v /media/rk/Chromium/trk_chromium/src/v8/tools/gdbinit\""
+          }
+          // {
+          //   "description": "Load Blink gdb configuration",
+          //   "text": "-interpreter-exec console \"python import sys; sys.path.insert(0, /media/rk/Chromium/trk_chromium/src/third_party/blink/tools/gdb'); import blink\""
+          // }
+        ]
+      },
+      {
+        "name": "d8 Release",
+        "type": "cppdbg", // "cppdbg" for GDB/LLDB, "cppvsdbg" for Windows Visual Studio debugger
+        "request": "launch",
+        "program": "/media/rk/Chromium/trk_chromium/src/out/Release/d8",
+        "preLaunchTask": "11-build_v8",
+        // "stopAtEntry": true,
+        "cwd": "/media/rk/Chromium/trk_chromium/src/out/Release",
+        "environment": [],
+        // "console": "integratedTerminal",
+        "args": [
+          // "--allow-natives-syntax",
+          // "--print-ast",
+          // "--rk_taint_business=false",
+          "/media/rk/Chromium/trk_chromium/test2.js"
+          // "/media/rk/Chromium/trk_chromium/web-tooling-benchmark/dist/cli.js"
+          // "--print-bytecode"
+          // "http://localhost:8000/",
+          // "--single-process",
+          // "--disable-gpu"
+        ],
+        "setupCommands": [
+          {
+            "description": "Enable pretty printing for gdb",
+            "text": "-enable-pretty-printing"
+          },
+          {
+            "description": "Load v8 gdb configuration",
+            "text": "-interpreter-exec console \"source -v /media/rk/Chromium/trk_chromium/src/v8/tools/gdbinit\""
+          }
+          // {
+          //   "description": "Load Blink gdb configuration",
+          //   "text": "-interpreter-exec console \"python import sys; sys.path.insert(0, /media/rk/Chromium/trk_chromium/src/third_party/blink/tools/gdb'); import blink\""
+          // }
+        ]
+      },
+      {
+        "name": "Chrome Debug",
+        "type": "cppdbg", // "cppdbg" for GDB/LLDB, "cppvsdbg" for Windows Visual Studio debugger
+        "request": "launch",
+        "program": "/media/rk/Chromium/trk_chromium/src/out/Debug/chrome",
+        "preLaunchTask": "8-build_chrome_debug",
+        // "stopAtEntry": true,
+        "cwd": "/media/rk/Chromium/trk_chromium/src/out/Debug",
+        "environment": [],
+        // "console": "integratedTerminal",
+        "args": [
+          // "--allow-natives-syntax",
+          // "--print-ast",
+          // "/media/rk/Chromium/trk_chromium/test.js",
+          "--no-sandbox",
+          "--single-process",
+          "--incognito",
+          // "--disable-gpu",
+          "http://localhost:8000/simple.html"
+        ],
+        "setupCommands": [
+          {
+            "description": "Enable pretty printing for gdb",
+            "text": "-enable-pretty-printing"
+          },
+          {
+            "description": "Load Chromium gdb configuration",
+            "text": "-interpreter-exec console \"source -v /media/rk/Chromium/trk_chromium/src/tools/gdb/gdbinit\""
+          },
+          // {
+          //   "description": "Load Blink gdb configuration",
+          //   "text": "-interpreter-exec console \"python import sys; sys.path.insert(0, /media/rk/Chromium/trk_chromium/src/third_party/blink/tools/gdb'); import blink\""
+          // }
+        ]
+      },
+      {
+        "name": "Content Shell Debug",
+        "type": "cppdbg", // "cppdbg" for GDB/LLDB, "cppvsdbg" for Windows Visual Studio debugger
+        "request": "launch",
+        "program": "/media/rk/Chromium/trk_chromium/src/out/Debug/content_shell",
+        "preLaunchTask": "9-build_content_shell",
+        // "stopAtEntry": true,
+        "cwd": "/media/rk/Chromium/trk_chromium/src/out/Debug",
+        "environment": [],
+        // "console": "integratedTerminal",
+        "args": [
+          // "--allow-natives-syntax",
+          // "--print-ast",
+          // "/media/rk/Chromium/trk_chromium/test.js",
+          "--no-sandbox",
+          "--single-process",
+          "--incognito",
+          // "--disable-gpu"
+          "http://localhost:8000/simple.html"
+          // "https://home.iitd.ac.in"
+          // "https://google.com"
+        ],
+        "setupCommands": [
+          {
+            "description": "Enable pretty printing for gdb",
+            "text": "-enable-pretty-printing"
+          },
+          {
+            "description": "Load Chromium gdb configuration",
+            "text": "-interpreter-exec console \"source -v /media/rk/Chromium/trk_chromium/src/tools/gdb/gdbinit\""
+          },
+          {
+            "description": "Load v8 gdb configuration",
+            "text": "-interpreter-exec console \"source -v /media/rk/Chromium/trk_chromium/src/v8/tools/gdbinit\""
+          },
+          {
+            "description": "Load Blink gdb configuration",
+            "text": "-interpreter-exec console \"python import sys; sys.path.insert(0, '${workspaceFolder}/third_party/blink/tools/gdb'); import blink\""
+          }
+        ]
+      },
+      {
+        "name": "Test Stuff",
+        "type": "cppdbg", // "cppdbg" for GDB/LLDB, "cppvsdbg" for Windows Visual Studio debugger
+        "request": "launch",
+        "program": "/media/rk/Chromium/trk_chromium/src/out/Debug/v8_hello_world",
+        "preLaunchTask": "10-build_test_debug",
+        // "stopAtEntry": true,
+        "cwd": "/media/rk/Chromium/trk_chromium/src/out/Debug",
+        "environment": [],
+        // "console": "integratedTerminal",
+        // "args": [
+        //   // "--allow-natives-syntax",
+        //   // "--print-ast",
+        //   // "/media/rk/Chromium/trk_chromium/test.js",
+        //   "--no-sandbox",
+        //   "--single-process",
+        //   "--incognito",
+        //   // "--disable-gpu",
+        //   "http://localhost:8000/simple.html"
+        // ],
+        "setupCommands": [
+          {
+            "description": "Enable pretty printing for gdb",
+            "text": "-enable-pretty-printing"
+          },
+          {
+            "description": "Load Chromium gdb configuration",
+            "text": "-interpreter-exec console \"source -v /media/rk/Chromium/trk_chromium/src/tools/gdb/gdbinit\""
+          },
+          {
+            "description": "Load v8 gdb configuration",
+            "text": "-interpreter-exec console \"source -v /media/rk/Chromium/trk_chromium/src/v8/tools/gdbinit\""
+          },
+          // {
+          //   "description": "Load Blink gdb configuration",
+          //   "text": "-interpreter-exec console \"python import sys; sys.path.insert(0, /media/rk/Chromium/trk_chromium/src/third_party/blink/tools/gdb'); import blink\""
+          // }
+        ]
+      },
+    ]
+  }
+  
+  

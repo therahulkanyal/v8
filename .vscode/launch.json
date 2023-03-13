@@ -2,6 +2,43 @@
     "version": "0.2.0",
     "configurations": [
       {
+        "name": "d8 Fast Debug",
+        "type": "cppdbg", // "cppdbg" for GDB/LLDB, "cppvsdbg" for Windows Visual Studio debugger
+        "request": "launch",
+        "program": "/media/rk/Chromium/trk_chromium/src/out/Default/d8",
+        "preLaunchTask": "12-build_v8",
+        // "stopAtEntry": true,
+        "cwd": "/media/rk/Chromium/trk_chromium/src/out/Default",
+        "environment": [],
+        // "console": "integratedTerminal",
+        "args": [
+          "--allow-natives-syntax",
+          // "--print-ast",
+          "/media/rk/Chromium/chromium_src/test2.js",
+          // "/media/rk/Chromium/trk_chromium/web-tooling-benchmark/dist/cli.js"
+          "--print-bytecode",
+          "--print-bytecode-filter=foo",
+
+          // "http://localhost:8000/",
+          // "--single-process",
+          // "--disable-gpu"
+        ],
+        "setupCommands": [
+          {
+            "description": "Enable pretty printing for gdb",
+            "text": "-enable-pretty-printing"
+          },
+          {
+            "description": "Load v8 gdb configuration",
+            "text": "-interpreter-exec console \"source -v /media/rk/Chromium/trk_chromium/src/v8/tools/gdbinit\""
+          }
+          // {
+          //   "description": "Load Blink gdb configuration",
+          //   "text": "-interpreter-exec console \"python import sys; sys.path.insert(0, /media/rk/Chromium/trk_chromium/src/third_party/blink/tools/gdb'); import blink\""
+          // }
+        ]
+      },
+      {
         "name": "d8 Debug",
         "type": "cppdbg", // "cppdbg" for GDB/LLDB, "cppvsdbg" for Windows Visual Studio debugger
         "request": "launch",
@@ -14,7 +51,7 @@
         "args": [
           "--allow-natives-syntax",
           // "--print-ast",
-          "/media/rk/Chromium/trk_chromium/test2.js",
+          "/media/rk/Chromium/chromium_src/test2.js",
           // "/media/rk/Chromium/trk_chromium/web-tooling-benchmark/dist/cli.js"
           "--print-bytecode",
           "--print-bytecode-filter=foo",

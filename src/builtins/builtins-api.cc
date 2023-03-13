@@ -15,8 +15,15 @@
 #include "src/objects/templates.h"
 #include "src/objects/visitors.h"
 
+#include<iostream>
+
 namespace v8 {
 namespace internal {
+
+
+
+extern void visv8_log_api_call(Isolate*, bool, HeapObject, Object,
+                               BuiltinArguments&);
 
 namespace {
 
@@ -59,6 +66,12 @@ V8_WARN_UNUSED_RESULT MaybeHandle<Object> HandleApiCallHelper(
     Address* argv, int argc) {
   Handle<JSReceiver> js_receiver;
   JSReceiver raw_holder;
+
+std::cout<<"Handle Api Call Helper";
+
+// v8::internal::visv8_log_api_call(isolate, is_construct, *function, *receiver, args);
+
+
   if (is_construct) {
     DCHECK(receiver->IsTheHole(isolate));
     if (fun_data->GetInstanceTemplate().IsUndefined(isolate)) {

@@ -240,7 +240,7 @@ declare_args() {
   v8_enable_shared_ro_heap = ""
 
   # Enable lazy source positions by default.
-  v8_enable_lazy_source_positions = true
+  v8_enable_lazy_source_positions = false
 
   # Enable third party HEAP library
   v8_enable_third_party_heap = false

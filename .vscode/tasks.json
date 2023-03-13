@@ -27,6 +27,11 @@
         "type": "shell",
         "command": "autoninja -C /media/rk/Chromium/trk_chromium/src/out/Release d8"
       },
+      {
+        "label": "12-build_v8",
+        "type": "shell",
+        "command": "autoninja -C /media/rk/Chromium/trk_chromium/src/out/Default d8"
+      },
     ]
   }
   

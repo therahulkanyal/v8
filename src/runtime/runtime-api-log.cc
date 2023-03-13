@@ -605,24 +605,34 @@ void visv8_log_api_call(Isolate* isolate, bool is_constructor, HeapObject func,
 
 
 RUNTIME_FUNCTION(Runtime_TracePropertyStore) {
-//   HandleScope hs(isolate);
-//   CONVERT_ARG_CHECKED(Smi, call_site, 0);
-//   CONVERT_ARG_CHECKED(Object, obj, 1);
-//   CONVERT_ARG_CHECKED(Object, prop, 2);
-//   CONVERT_ARG_CHECKED(Object, value, 3);
+  HandleScope hs(isolate);
 
-//   visv8_log_property_set(isolate, Smi::ToInt(call_site), obj, prop, value);
+  int call_site = args.smi_value_at(0);
+  auto obj = JSObject::cast(args[1]);
+  auto prop = JSObject::cast(args[2]);
+  auto value = JSObject::cast(args[3]);
+
+  visv8_log_property_set(isolate, call_site, obj, prop, value);
 
   return ReadOnlyRoots(isolate).undefined_value();
 }
 
 RUNTIME_FUNCTION(Runtime_TracePropertyLoad) {
-//   HandleScope hs(isolate);
-//   CONVERT_ARG_CHECKED(Smi, call_site, 0);
-//   CONVERT_ARG_CHECKED(Object, obj, 1);
-//   CONVERT_ARG_CHECKED(Object, prop, 2);
+  HandleScope hs(isolate);
 
-//   visv8_log_property_get(isolate, Smi::ToInt(call_site), obj, prop);
+  // // std::cout << "\nRuntime_TracePropertyLoad" << std::endl;
+
+  // // std::cout << "Printing " << args.length() << " Args\n";
+
+  // // for (int i = 0; i < args.length(); i++) {
+  // //   std::cout << args.at(i) << std::endl << std::flush;
+  // // }
+
+  int call_site = args.smi_value_at(0);
+  auto obj = JSObject::cast(args[1]);
+  auto prop = JSObject::cast(args[2]);
+
+  visv8_log_property_get(isolate, call_site, obj, prop);
 
   return ReadOnlyRoots(isolate).undefined_value();
 }
